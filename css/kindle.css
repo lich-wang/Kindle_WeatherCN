@@ -250,3 +250,53 @@ html.night {
     font-weight: bolder;
     text-align: center;
 }
+
+
+
+/* ---------- 覆盖图标尺寸（追加到 css/kindle.css 最底部） ---------- */
+
+/* 首页主图标（更小一些）*/
+#icon {
+  height: 12rem;       /* 原来 20rem，改小到 12rem */
+  width: 12rem;
+  font-size: 12rem;    /* 原来 18rem，改小到 12rem */
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 横屏下的首页主图标覆盖（原来 25rem -> 改为 18rem） */
+.landscape #icon {
+  height: 18rem;
+  width: 18rem;
+  font-size: 18rem;
+}
+
+/* 预报小图标容器（更小一些）*/
+.forecastIconWrapper {
+  font-size: 7rem;     /* 原来 12rem -> 改为 7rem */
+  width: auto;         /* 保持自适应，必要时可给固定宽高 */
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 横屏下预报小图标 */
+.landscape .forecastIconWrapper {
+  font-size: 9rem;     /* 原来 14.2rem -> 改为 9rem */
+}
+
+/* 直接控制 colIcon（HTML 中的 <i class="colIcon">）以确保生效 */
+.colIcon {
+  font-size: inherit;  /* 从 .forecastIconWrapper 继承大小 */
+  line-height: 1;
+  display: inline-block;
+}
+
+/* 可选：把主图标在极小屏幕再压一点 */
+@media (max-width: 420px) {
+  #icon { height: 10rem; width: 10rem; font-size: 10rem; }
+  .forecastIconWrapper { font-size: 6rem; }
+}
